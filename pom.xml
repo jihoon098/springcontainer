@@ -16,13 +16,42 @@
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+		
+		<!-- Test -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-test</artifactId>
+		    <version>${org.springframework-version}</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>4.12</version>
+		    <!--  <scope>태그로 설정하면war로 build될때는 빠짐. 설정안하면 war파일내로 묶임-->
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>com.github.stefanbirkner</groupId>
+		    <artifactId>system-rules</artifactId>
+		    <version>1.19.0</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		<!-- java 기반의 와이어링(inject)-->
+		<dependency>
+		    <groupId>javax.inject</groupId>
+		    <artifactId>javax.inject</artifactId>
+		    <version>1</version>
+		</dependency>
+		
 	</dependencies>
 
+
+
 	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
-		
+		<sourceDirectory>src/main/java</sourceDirectory>	
 		<plugins>
-		
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>

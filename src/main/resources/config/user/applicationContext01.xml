@@ -14,10 +14,60 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 	
+		<context:annotation-config />
+	
 		<!-- 기본생성자를 Bean으로 등록 -->
-		<bean class = "kr.co.itcen.springcontainer.user.User" />
+		<bean id = "user1" class = "kr.co.itcen.springcontainer.user.User" />
+		<bean id = "user2" name="usr2" class = "kr.co.itcen.springcontainer.user.User" />
+		
+		<bean id = "user3" class = "kr.co.itcen.springcontainer.user.User" >
+			<constructor-arg index = "0" value = "1"/>
+			<constructor-arg index = "1" value = "스펀지밥"/>
+			<!-- <constructor-arg value = "스펀지밥"/> -->
+		</bean>
 		
 		
+		<bean id="user4" class="kr.co.itcen.springcontainer.user.User">
+			<property name="no" value="4"/>
+			<property name="name" value="조로"/>
+		</bean>
+		
+		<!-- property설정은 setter가 있어야함. -->
+		<bean id = "user5" class = "kr.co.itcen.springcontainer.user.User" >
+			<property name="no" value="5"></property>
+			<property name="name" value="둘리"></property>
+			<!-- DI -->
+			<property name="friend" ref="friend1"/>
+		</bean>
+		
+		
+		
+		<bean id="friend1" class="kr.co.itcen.springcontainer.user.Friend">
+			<constructor-arg value="로드 존슨"/>
+		</bean>
+		
+		
+		
+		<bean id="user6" class="kr.co.itcen.springcontainer.user.User">
+			<property name="no" value="6"/>
+			<property name="name" value="쵸파"/>
+			<!-- DI라기보다는 객체를 생성해서 집어넣은 것. -->
+			<property name="friend" >
+				<bean class="kr.co.itcen.springcontainer.user.Friend">
+					<constructor-arg value = "마이콜"/>
+				</bean>
+			</property>
+			
+			<property name="friends">
+				<list>
+					<value>아이언맨</value>
+					<value>캡틴 아메리카</value>
+					<value>스파이더맨</value>
+					<value>토르</value>
+				</list>
+			</property>
+			
+		</bean>
 		
 		
 </beans>
