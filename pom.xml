@@ -27,7 +27,7 @@
 		<dependency>
 		    <groupId>junit</groupId>
 		    <artifactId>junit</artifactId>
-		    <version>4.12</version>
+		    <version>4.13.1</version>
 		    <!--  <scope>태그로 설정하면war로 build될때는 빠짐. 설정안하면 war파일내로 묶임-->
 		    <scope>test</scope>
 		</dependency>
